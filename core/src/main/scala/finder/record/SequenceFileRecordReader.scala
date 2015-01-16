@@ -17,4 +17,6 @@ class SequenceFileRecordReader[R](dataset: Dataset[R], indexRecord: IndexRecord)
   }
 
   override def currentOffset: Long = reader.getPosition
+
+  override def close(): Unit = reader.close()
 }

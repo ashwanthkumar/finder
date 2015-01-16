@@ -24,4 +24,6 @@ abstract class RecordReader[R](dataset: Dataset[R], indexRecord: IndexRecord) ex
   protected def next(): R
 
   def currentOffset: Long
+
+  def close(): Unit
 }

@@ -5,7 +5,14 @@ import finder.messages.IndexRecord
 import finder.record.RecordReader
 import finder.spec.Dataset
 
-case class FinderConfig(datasets: List[DatasetConfig])
+case class FinderConfig(datasets: List[DatasetConfig]) {
+  def dataset(name: String) = {
+    datasets.find(_.name == name) match {
+      case Some(datasetConfig) => datasetConfig
+      case None => throw new RuntimeException(s"Dataset configuration - $name - Not found")
+    }
+  }
+}
 
 case class DatasetConfig(name: String, impl: String, recordReaderImpl: String, index: IndexConfig) {
   def dataset[R]: Dataset[R] = {
