@@ -1,5 +1,8 @@
 package finder.spec
 
+import finder.index.IndexReader
+import finder.index.IndexReader.ID_TS_SEPARATOR
+
 trait Dataset[R] extends SerDe[R] with Serializable {
   def key(input: R): String
 
@@ -11,5 +14,5 @@ trait Dataset[R] extends SerDe[R] with Serializable {
   /**
    * Key used while indexing
    */
-  def indexKey(input: R) = s"${key(input)}#_#_#${timestamp(input)}"
+  def indexKey(input: R) = s"${key(input)}${ID_TS_SEPARATOR}${timestamp(input)}"
 }
