@@ -5,6 +5,7 @@ import finder.config.DatasetConfig
 import finder.index.IndexReader._
 import finder.util.Utils._
 
+// TODO - Cache the reader instances
 class DatasetController(config: DatasetConfig) {
   def search(key: String): Future[List[_]] = {
     managed(config.index.reader) { indexReader =>
