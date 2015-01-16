@@ -1,8 +1,17 @@
 [![Build Status](https://snap-ci.com/ashwanthkumar/finder/branch/master/build_image)](https://snap-ci.com/ashwanthkumar/finder/branch/master)
 
 # finder
-Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayback/) clone without converting our existing crawled data which are in SequenceFiles to WARC / ARC formats. Architecture is very much inspired from Wayback but with a few changes. It can not only support HTML pages but finder can provide key+timestamp based access to any dataset. 
+Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayback/) clone without converting our existing crawled data which are in SequenceFiles to WARC / ARC formats. Architecture is very much inspired from Wayback but with a few changes. It can not only support HTML pages but finder can provide key+timestamp based access to any dataset.
 
+## Getting Started
+* Run the `SampleDatagenerator` program from your fav. IDE
+* By default it would create a folder in the project structure called "example-user-data"
+* Run the `FinderService` from `services` module
+* Example Queries
+** [http://localhost:7070/user/search/Tanek](http://localhost:7070/user/search/Tanek)
+** [http://localhost:7070/user/get/Tanek/id_from_previous_search](http://localhost:7070/user/get/Tanek/id_from_previous_search)
+
+## How does it work?
 You can define a custom Dataset like
 ```scala
 import finder.spec.Dataset
