@@ -22,6 +22,14 @@ object Build extends Build {
       )
     )
 
+  lazy val services = Project("finder-services", file("services"), settings = defaultSettings)
+    .settings(
+      libraryDependencies ++= Seq(
+        "com.twitter" %% "finatra" % "1.6.0"
+      )
+    )
+    .dependsOn(core)
+
   lazy val defaultSettings = Defaults.coreDefaultSettings ++ Seq(
     organization := "in.ashwanthkumar",
     version := AppVersion,
