@@ -19,7 +19,10 @@ class DatasetRouter extends Controller {
     val identifier = request.routeParams("id")
     val timestamp = request.routeParams("timestamp").toLong
 
-    new DatasetController(config.dataset(dataset)).get(identifier, timestamp).map(render.json)
+    new DatasetController(config.dataset(dataset)).get(identifier, timestamp).map {
+      case Some(result) => render.json(result)
+      case None => render.notFound
+    }
   }
 
   error { request =>
