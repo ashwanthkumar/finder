@@ -26,6 +26,7 @@ object Build extends Build {
     organization := "in.ashwanthkumar",
     version := AppVersion,
     resolvers += "Twitter Maven Repo" at "http://maven.twttr.com/",
+    resolvers += "Cloudera Repo" at "https://repository.cloudera.com/cloudera/cloudera-repos/",
     parallelExecution in This := false
   )
 
