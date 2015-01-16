@@ -18,7 +18,7 @@ class SequenceFileRecordReaderSpec extends FlatSpec with FinderSpecWithMockData 
     val reader = new SequenceFileRecordReader(new UserDataset, indexRecord)
     val user = reader.read()
     user.timestamp should be > testTimestamp
-    user.age should be >= 0
+    user.id should be >= 0
     user.name.startsWith("foo") should be(true)
   }
 }

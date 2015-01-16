@@ -3,7 +3,7 @@ package finder.models
 import finder.spec.Dataset
 import finder.util.JSONUtil
 
-case class User(name: String, age: Int, timestamp: Long)
+case class User(name: String, email: String, id: Int, timestamp: Long)
 
 class UserDataset extends Dataset[User] {
   override def key(input: User): String = input.name

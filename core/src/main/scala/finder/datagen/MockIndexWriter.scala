@@ -1,4 +1,4 @@
-package finder.mock
+package finder.datagen
 
 import java.io.File
 
@@ -10,8 +10,8 @@ import org.apache.hadoop.fs.Path
 import org.apache.hadoop.io.BytesWritable
 import org.apache.hadoop.io.SequenceFile.Reader
 import org.apache.hadoop.io.SequenceFile.Reader._
-import org.iq80.leveldb.{CompressionType, Options}
 import org.iq80.leveldb.impl.Iq80DBFactory._
+import org.iq80.leveldb.{CompressionType, Options}
 
 class MockIndexWriter[R](location: String, dataset: Dataset[R]) {
   lazy val options = new Options().createIfMissing(true).compressionType(CompressionType.NONE)

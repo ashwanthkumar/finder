@@ -1,9 +1,7 @@
 package finder.http
 
-import com.twitter.finatra.{Request, Controller}
+import com.twitter.finatra.Controller
 import finder.config.FinderConfigReader
-import finder.index.IndexReader
-import finder.index.IndexReader.ID_TS_SEPARATOR
 
 
 class DatasetRouter extends Controller {

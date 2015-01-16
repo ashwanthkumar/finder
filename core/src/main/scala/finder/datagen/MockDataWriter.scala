@@ -1,4 +1,4 @@
-package finder.mock
+package finder.datagen
 
 import finder.spec.Dataset
 import finder.util.FLogger

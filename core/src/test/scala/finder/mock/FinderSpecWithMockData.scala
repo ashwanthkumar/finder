@@ -5,6 +5,7 @@ import java.util.UUID.randomUUID
 import com.google.common.io.Files
 import com.typesafe.config.ConfigFactory
 import finder.config.{FinderConfigReader, FinderConfig}
+import finder.datagen.{MockIndexWriter, MockDataWriter}
 import finder.models.{User, UserDataset}
 import org.apache.commons.io.FileUtils
 import org.scalatest.{BeforeAndAfterAll, Suite}
@@ -14,7 +15,7 @@ import scala.util.Random
 trait FinderSpecWithMockData extends BeforeAndAfterAll {
   this: Suite =>
   val testTimestamp = System.currentTimeMillis()
-  lazy val sampleUsers = (1 to 100).map(index => User(s"${namePrefixForData(index)}${randomUUID().toString}", Random.nextInt(100), testTimestamp + index))
+  lazy val sampleUsers = (1 to 100).map(index => User(s"${namePrefixForData(index)}${randomUUID().toString}", randomUUID().toString, Random.nextInt(100), testTimestamp + index))
   val testDir = Files.createTempDir()
   val testConfig =
     s"""
