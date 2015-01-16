@@ -1,16 +1,19 @@
 package finder.config
 
 import finder.index.IndexReader
+import finder.messages.IndexRecord
+import finder.record.RecordReader
 import finder.spec.Dataset
-import org.apache.hadoop.conf.Configuration
 
-case class FinderConfig(datasets: List[DatasetConfig]) {
-  def hadoopConfig() = new Configuration()
-}
+case class FinderConfig(datasets: List[DatasetConfig])
 
-case class DatasetConfig(name: String, impl: String, index: IndexConfig) {
+case class DatasetConfig(name: String, impl: String, recordReaderImpl: String, index: IndexConfig) {
   def dataset[R]: Dataset[R] = {
     Class.forName(impl).newInstance().asInstanceOf[Dataset[R]]
+  }
+
+  def recordReader[R](indexRecord: IndexRecord): RecordReader[R] = {
+    Class.forName(recordReaderImpl).getConstructor(classOf[Dataset[R]], classOf[IndexRecord]).newInstance(dataset, indexRecord).asInstanceOf[RecordReader[R]]
   }
 }
 

@@ -7,8 +7,8 @@ import org.apache.hadoop.fs.Path
 import org.apache.hadoop.io.SequenceFile.Reader.{file, start}
 import org.apache.hadoop.io.{BytesWritable, SequenceFile}
 
-class SequenceFileRecordReader[R](dataset: Dataset[R], conf: Configuration, indexRecord: IndexRecord) extends RecordReader[R](dataset, indexRecord) {
-  val reader = new SequenceFile.Reader(conf, file(new Path(indexRecord.file)), start(indexRecord.splitOffset))
+class SequenceFileRecordReader[R](dataset: Dataset[R], indexRecord: IndexRecord) extends RecordReader[R](dataset, indexRecord) {
+  lazy val reader = new SequenceFile.Reader(new Configuration(), file(new Path(indexRecord.file)), start(indexRecord.splitOffset))
 
   def next(): R = {
     val bytesWritable = new BytesWritable()

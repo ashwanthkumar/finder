@@ -36,6 +36,7 @@ class FinderConfigReader {
     DatasetConfig(
       descriptorConfig.getString("name"),
       descriptorConfig.getString("impl"),
+      descriptorConfig.getString("record-reader"),
       index(descriptorConfig.getConfig("index"))
     )
   }
