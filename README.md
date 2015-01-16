@@ -11,7 +11,14 @@ Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayba
 ** [http://localhost:7070/user/search/Tanek](http://localhost:7070/user/search/Tanek)
 ** [http://localhost:7070/user/get/Tanek/id_from_previous_search](http://localhost:7070/user/get/Tanek/id_from_previous_search)
 
-## How does it work?
+## Finder HTTP Service
+Finder comes with a simple microservice that gives you access to the dataset.
+```
+GET  /:dataset/search/:key  Searches for a given key in the given dataset. Key is prefix matched with the key that's used in the dataset while indexing.
+GET  /:dataset/get/:key/:timestamp Returns the underlying record from the Dataset.
+```
+
+## More Info
 You can define a custom Dataset like
 ```scala
 import finder.spec.Dataset
@@ -49,12 +56,6 @@ finder {
 
 Finder uses an Index to store and retrive metadata information regarding every record. By default we use LevelDB backed index engine, but again it is pluggable. Most likely we could use something like [ElephantDB](https://github.com/nathanmarz/elephantdb) to query the index.
 
-## Finder HTTP Service
-Finder comes with a simple microservice that gives you access to the dataset.
-```
-GET  /:dataset/search/:key  Searches for a given key in the given dataset. Key is prefix matched with the key that's used in the dataset while indexing.
-GET  /:dataset/get/:key/:timestamp Returns the underlying record from the Dataset.
-```
 
 ## TODOs
 - <s>Build a HTTP service to provide access to these datasets</s>
