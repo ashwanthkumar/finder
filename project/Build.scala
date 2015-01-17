@@ -3,7 +3,7 @@ import sbt._
 
 object Build extends Build {
 
-  val AppVersion = "1.0-SNAPSHOT"
+  val AppVersion = "0.0.1"
   val ScalaVersion = "2.10.4"
 
   lazy val main = Project("finder", file("."), settings = defaultSettings)
