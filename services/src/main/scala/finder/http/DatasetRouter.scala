@@ -16,6 +16,7 @@ class DatasetRouter extends Controller {
     val dataset = request.routeParams("dataset")
     val identifier = request.routeParams("id")
     val timestamp = request.routeParams("timestamp").toLong
+    log.info(s"Searching $dataset with $identifier at $timestamp")
 
     new DatasetController(config.dataset(dataset)).get(identifier, timestamp).map {
       case Some(result) => render.json(result)
