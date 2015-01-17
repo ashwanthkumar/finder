@@ -25,7 +25,9 @@ object Build extends Build {
   lazy val services = Project("finder-services", file("services"), settings = defaultSettings)
     .settings(
       libraryDependencies ++= Seq(
-        "com.twitter" %% "finatra" % "1.6.0"
+        "com.twitter" %% "finatra" % "1.6.0",
+        "com.hadoop.gplcompression" % "hadoop-lzo" % "0.4.19",
+        "org.apache.hadoop" % "hadoop-client" % "2.0.0-mr1-cdh4.2.1"
       )
     )
     .dependsOn(core)
