@@ -78,3 +78,6 @@ Finder uses an Index to store and retrive metadata information regarding every r
 ## TODOs
 - <s>Build a HTTP service to provide access to these datasets</s>
 - Write ElephantDB Index Reader
+
+## License
+Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
