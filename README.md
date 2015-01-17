@@ -9,7 +9,7 @@ Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayba
 * Run the `FinderService` from `services` module
 * Example Queries
   * [http://localhost:7070/user/search/Tanek](http://localhost:7070/user/search/Tanek)
-  * [http://localhost:7070/user/get/Tanek/id_from_previous_search](http://localhost:7070/user/get/Tanek/id_from_previous_search)
+  * [http://localhost:7070/user/get/Tanek/timestamp_from_previous_search](http://localhost:7070/user/get/Tanek/timestamp_from_previous_search)
 
 ## Finder HTTP Service
 Finder comes with a simple microservice that gives you access to the dataset.
