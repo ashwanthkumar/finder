@@ -38,7 +38,7 @@ object Build extends Build {
     parallelExecution in This := false
   )
 
-  lazy val publishSettings = Seq(
+  lazy val publishSettings = xerial.sbt.Sonatype.sonatypeSettings ++ Seq(
     mappings in (Compile, packageBin) ~= (_.filterNot{case (file, _) => file.isDirectory && file.getName == "my-config"}),
     publishMavenStyle := true,
     publishArtifact in Test := false,
