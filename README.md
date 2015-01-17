@@ -1,7 +1,7 @@
 [![Build Status](https://snap-ci.com/ashwanthkumar/finder/branch/master/build_image)](https://snap-ci.com/ashwanthkumar/finder/branch/master)
 
 # finder
-Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayback/) clone without converting our existing crawled data which are in SequenceFiles to WARC / ARC formats. Architecture is very much inspired from Wayback but with a few changes. It can not only support HTML pages but finder can provide key+timestamp based access to any dataset.
+Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayback/) like system without converting our existing crawled data which are in SequenceFiles to WARC / ARC formats. Architecture is very much inspired from Wayback but with a few changes. Finder not only supports HTML but can provide key+timestamp based access to any dataset. These are very typical in the [λ Architecture](http://lambda-architecture.net/) world, where raw immutable dataset is the fundamental assumption.
 
 ## Getting Started
 * Run the `SampleDatagenerator` program from your fav. IDE
@@ -72,12 +72,14 @@ finder {
 }
 ```
 
-Finder uses an Index to store and retrive metadata information regarding every record. By default we use LevelDB backed index engine, but again it is pluggable. Most likely we could use something like [ElephantDB](https://github.com/nathanmarz/elephantdb) to query the index.
+Finder uses an Index to store and retrieve metadata information regarding every record. By default we use LevelDB backed index, but again it is pluggable. Most likely we could use something like [ElephantDB](https://github.com/nathanmarz/elephantdb) to query the index.
 
 
 ## TODOs
 - <s>Build a HTTP service to provide access to these datasets</s>
-- Write ElephantDB Index Reader
+- ElephantDB Adaptors
+- Partitioned Indexes - Comes for free with ElephantDB but for local LevelDB instances we might want to build something on our own
+- Versioned datasets - Each version could be a different run of the view in Batch Layer
 
 ## License
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
