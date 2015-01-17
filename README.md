@@ -11,6 +11,24 @@ Finder is a hobby project to build a [Wayback](https://github.com/iipc/openwayba
   * [http://localhost:7070/user/search/Tanek](http://localhost:7070/user/search/Tanek)
   * [http://localhost:7070/user/get/Tanek/timestamp_from_previous_search](http://localhost:7070/user/get/Tanek/timestamp_from_previous_search)
 
+## Dependencies
+To build datasets for your models, use the following dependency on finder-core.
+
+For Maven,
+```xml
+<dependency>
+  <groupId>in.ashwanthkumar</groupId>
+  <artifactId>finder-core_2.10</artifactId>
+  <version>0.0.1</version>
+</dependency>
+```
+
+For SBT,
+```sbt
+libraryDependencies += "in.ashwanthkumar" %% "finder-core" % "0.0.1"
+```
+
+
 ## Finder HTTP Service
 Finder comes with a simple microservice that gives you access to the dataset.
 ```
